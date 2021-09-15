@@ -45,16 +45,16 @@ model.fit(x_train, y_train_cat, batch_size=32, epochs=5, validation_split=0.2)
 model.evaluate(x_test, y_test_cat)
 
 n = 1
-img = np.asarray(Image.open('3.jpg').convert('RGB'))
-# x = np.expand_dims(x_test[n], axis=0)
-x = np.expand_dims(img, axis=-1)
+# img = np.asarray(Image.open('3.jpg').convert('RGB'))
+x = np.expand_dims(x_test[n], axis=0)
+# x = np.expand_dims(img, axis=-1)
 
 res = model.predict(x)
 print( res )
 print( np.argmax(res) )
 
-# plt.imshow(x_test[n], cmap=plt.cm.binary)
-plt.imshow(img, cmap=plt.cm.binary)
+plt.imshow(x_test[n], cmap=plt.cm.binary)
+# plt.imshow(img, cmap=plt.cm.binary)
 
 plt.show()
 
@@ -85,5 +85,3 @@ for i in range(25):
     plt.imshow(x_false[i], cmap=plt.cm.binary)
 
 plt.show()
-
-print(x_test[n])
